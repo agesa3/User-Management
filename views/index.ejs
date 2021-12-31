@@ -1,1 +1,71 @@
-<h1>Hello</h1>
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>
+        <% if (title) { %>
+        <%= title %>
+        <% } else { %>
+        <%= 'Home' %>
+        <% } %>
+    </title>
+    <!-- add bootstrap 5 css link  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+
+<body>
+    <div class="container">
+        <h1>Node JS EJS CRUD APP</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <% if (title) { %>
+                            <%= title %>
+                            <% } else { %>
+                            <%= 'Home' %>
+                            <% } %>
+                        </h5>
+                        <p class="card-text">
+
+                        </p>
+                        <a href="/users" class="btn btn-primary">Users</a>
+                        <a href="/users/create" class="btn btn-primary">Create User</a>
+                    </div>
+
+                    <div class="user_table">
+                        <table class="table table-dark table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone No.</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for (let usert of user) { %>
+                                <tr>
+                                    <td><%= usert.id %></td>
+                                    <td><%= usert.u_name %></td>
+                                    <td><%= usert.email %></td>
+                                    <td><%= usert.phone_number %></td>
+                                    <td>
+                                        <a href="/users/edit/<%= usert.id %>" class="btn btn-primary">Edit</a>
+                                        <a href="/users/delete/<%= usert.id %>" class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                                <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
