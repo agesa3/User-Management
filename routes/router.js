@@ -48,4 +48,16 @@ router.post("/save", (req, res) => {
   });
 });
 
+//router to edit user and render the edit page
+router.get("/edit/:id", (req, res) => {
+  let sql = `SELECT * FROM users WHERE id=${req.params.id}`;
+  let query = connection.query(sql, (err, results) => {
+    if (err) throw err;
+    res.render("edit", {
+      title: "Edit User",
+      user: results[0],
+    });
+  });
+});
+
 module.exports = router;
