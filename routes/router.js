@@ -60,4 +60,23 @@ router.get("/edit/:id", (req, res) => {
   });
 });
 
+//router to update the user
+router.post("/update", (req, res) => {
+  const userId = req.body.id;
+  console.log(userId);
+  let sql =
+    "UPDATE users SET u_name='" +
+    req.body.u_name +
+    "',email='" +
+    req.body.email +
+    "', phone_number='" +
+    req.body.phone_number +
+    "' WHERE id=" +
+    userId;
+  let query = connection.query(sql, (err, results) => {
+    if (err) throw err + "this is the error";
+    res.redirect("/user/");
+  });
+});
+
 module.exports = router;

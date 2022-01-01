@@ -26,7 +26,8 @@
                                 <% } %>
                             </h5>
                             <p class="card-text">
-                                <form action="/user/save" method="POST">
+                                <form action="/user/update" method="POST">
+                                    <input type="hidden"  value="<%= user.id %>" name="id">
                                     <div class="form-group">
                                         <label for="name">Name</label>
                                         <input type="text" class="form-control" id="u_name" name="u_name" placeholder="Enter Name" value="<%= user.u_name %>" required>
