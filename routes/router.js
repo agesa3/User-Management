@@ -79,4 +79,13 @@ router.post("/update", (req, res) => {
   });
 });
 
+//delete user
+router.get("/delete/:id", (req, res) => {
+  let sql = `DELETE FROM users WHERE id=${req.params.id}`;
+  let query = connection.query(sql, (err, results) => {
+    if (err) throw err;
+    res.redirect("/user/");
+  });
+});
+
 module.exports = router;
