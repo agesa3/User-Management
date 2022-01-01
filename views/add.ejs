@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <title>
+        <% if (title) { %>
+        <%= title %>
+        <% } else { %>
+        <%= 'Add User' %>
+        <% } %>
+    </title>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+            integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Node JS EJS CRUD APP</h1>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <% if (title) { %>
+                                <%= title %>
+                                <% } else { %>
+                                <%= 'Add User' %>
+                                <% } %>
+                            </h5>
+                            <p class="card-text">
+                                <form action="/user/save" method="POST">
+                                    <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <input type="text" class="form-control" id="u_name" name="u_name" placeholder="Enter Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email address</label>
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone_number">Phone Number</label>
+                                        <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="Enter Phone Number">
+                                    </div>
+                                    <br />
+                                    <br />
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
